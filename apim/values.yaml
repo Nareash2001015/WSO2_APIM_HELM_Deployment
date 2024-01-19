@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: wso2/wso2am:4.0.0
+
+container:
+  port1: 9443
+  port2: 8243
+  port3: 8280
+
+app:
+  name: apim
+
+deployment:
+  name: apim-deployment
+  
+
+service:
+  name: apim-service
+  
+
