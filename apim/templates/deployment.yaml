@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deployment.name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
     app: {{ .Values.app.name }}
 spec:
@@ -17,6 +18,7 @@ spec:
       containers:
       - name: {{ .Values.app.name }}
         image: {{ .Values.image.repository }}
+        imagePullPolicy: Never
         ports:
         - containerPort: {{ .Values.container.port1 }}
         - containerPort: {{ .Values.container.port2 }}
