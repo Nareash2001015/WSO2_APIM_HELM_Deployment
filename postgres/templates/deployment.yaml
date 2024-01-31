@@ -20,9 +20,15 @@ spec:
           image: {{ .Values.image.repository }}
           env:
             - name: POSTGRES_USER
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: apim-secret
+                  key: username
             - name: POSTGRES_PASSWORD
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: apim-secret
+                  key: password
           restart: always
           ports:
             - containerPort: {{ .Values.container.port1 }}

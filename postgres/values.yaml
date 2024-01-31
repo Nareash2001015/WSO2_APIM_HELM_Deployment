@@ -7,7 +7,7 @@ container:
   port1: 5432
 
 namespace:
-  name: apimpost
+  name: apim-aks
 
 app:
   name: postgres

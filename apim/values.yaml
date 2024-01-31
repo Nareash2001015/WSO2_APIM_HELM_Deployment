@@ -1,17 +1,18 @@
-replicaCount: 1
+replicaCount: 2
 
 image:
-  repository: apim-postgres:latest
+  repository: nareash/postgres-apim:latest
 
 container:
   port1: 9443
   port2: 8243
   port3: 8280
+  port4: 5005
 
 ingName: apim-ingress
 
 namespace:
-  name: apimpost
+  name: apim-aks
 
 app:
   name: apim

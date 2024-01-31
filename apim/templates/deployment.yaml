@@ -16,10 +16,20 @@ spec:
         app: {{ .Values.app.name }}
     spec:
       containers:
-      - name: {{ .Values.app.name }}
-        image: {{ .Values.image.repository }}
-        imagePullPolicy: Never
-        ports:
-        - containerPort: {{ .Values.container.port1 }}
-        - containerPort: {{ .Values.container.port2 }}
-        - containerPort: {{ .Values.container.port3 }}
+        - name: {{ .Values.app.name }}
+          image: {{ .Values.image.repository }}
+          imagePullPolicy: Never
+          ports:
+            - containerPort: {{ .Values.container.port1 }}
+            - containerPort: {{ .Values.container.port2 }}
+            - containerPort: {{ .Values.container.port3 }}
+            - containerPort: {{ .Values.container.port4 }}
+          volumeMounts:
+            - name: apim-deployent-toml
+              mountPath: /home/apim-postgres/repository/conf/deployment.toml
+              subPath: deployment.toml
+
+      volumes:
+        - name: apim-deployent-toml
+          configMap:
+            name: apim-deployent-toml

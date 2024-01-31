@@ -8,6 +8,20 @@ spec:
   selector:
     app: {{ .Values.app.name }}
   ports:
-    - protocol: TCP
+    - name: port1
+      protocol: TCP
       port: {{ .Values.container.port1 }}
       targetPort: {{ .Values.container.port1 }}
+      nodePort: 30000
+    - name: port2
+      protocol: TCP
+      port: {{ .Values.container.port2 }}
+      targetPort: {{ .Values.container.port2 }}
+    - name: port3
+      protocol: TCP
+      port: {{ .Values.container.port3 }}
+      targetPort: {{ .Values.container.port3 }}
+    - name: port4
+      protocol: TCP
+      port: {{ .Values.container.port4 }}
+      targetPort: {{ .Values.container.port4 }}
