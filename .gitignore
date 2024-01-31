@@ -537,3 +537,6 @@ terraform-modules/.terraform/modules/spoke-virtual-network/modules/azurerm/Vnet-
 terraform-modules/.terraform/modules/spoke-virtual-network/modules/azurerm/Vnet-Peering/variables.tf
 terraform-modules/.terraform/modules/spoke-virtual-network/modules/azurerm/Vnet-Peering/versions.tf
 terraform-modules/.terraform/modules/spoke-virtual-network/modules/azurerm/Vnet-Peering/vnet_peering.tf
+terraform-modules/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.88.0/linux_amd64/terraform-provider-azurerm_v3.88.0_x5
+terraform-modules/.terraform/providers/registry.terraform.io/hashicorp/local/2.4.1/linux_amd64/terraform-provider-local_v2.4.1_x5
+terraform-modules/.terraform/providers/registry.terraform.io/hashicorp/random/3.6.0/linux_amd64/terraform-provider-random_v3.6.0_x5
