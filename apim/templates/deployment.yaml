@@ -18,7 +18,10 @@ spec:
       containers:
         - name: {{ .Values.app.name }}
           image: {{ .Values.image.repository }}
-          imagePullPolicy: Never
+          imagePullPolicy: Always
+          env:
+            - name: EXTERNAL_IP
+              value: {{ .Values.app.externalip }}
           ports:
             - containerPort: {{ .Values.container.port1 }}
             - containerPort: {{ .Values.container.port2 }}
@@ -28,7 +31,11 @@ spec:
             - name: apim-deployent-toml
               mountPath: /home/apim-postgres/repository/conf/deployment.toml
               subPath: deployment.toml
-
+      tolerations:
+        - key: "CriticalAddonsOnly"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"
       volumes:
         - name: apim-deployent-toml
           configMap:

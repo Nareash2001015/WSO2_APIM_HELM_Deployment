@@ -20,5 +20,6 @@ service:
   name: postgres-service
 
 ConfigMap:
-  name: postgres-dbscripts
+  name1: postgres-init-scripts
+  name2: postgres-max-conn
 

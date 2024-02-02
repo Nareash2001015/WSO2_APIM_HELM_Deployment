@@ -49,6 +49,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     orchestrator_version         = var.default_node_pool_orchestrator_version
     enable_node_public_ip        = false
     only_critical_addons_enabled = var.default_node_pool_only_critical_addons_enabled
+    # temporary_name_for_rotation = var.default_node_pool_temporary_name_for_rotation
   }
 
   identity {
@@ -59,10 +60,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     managed                = true
     admin_group_object_ids = var.aks_admin_group_object_ids
     azure_rbac_enabled     = var.aks_azure_rbac_enabled
-  }
-
-  oms_agent {
-    log_analytics_workspace_id = var.log_analytics_workspace_id
   }
 
   network_profile {

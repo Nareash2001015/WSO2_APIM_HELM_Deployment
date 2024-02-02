@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.ConfigMap.name }}
+  name: {{ .Values.ConfigMap.name1 }}
   namespace: {{ .Values.namespace.name }}
 data:
   init.sql: |-

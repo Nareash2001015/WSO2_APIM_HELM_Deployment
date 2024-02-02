@@ -25,7 +25,7 @@ module "local-file" {
 
 module "resource-group" {
   source              = "git::https://github.com/wso2/azure-terraform-modules.git//modules/azurerm/Resource-Group?ref=v0.5.0"
-  resource_group_name = join("-", ["aks-deployment", "dev", "eastus", "001"])
+  resource_group_name = join("-", ["aks-deployment", "dev", "eastus"])
   location            = "EAST US"
   tags                = local.default_tags
 }
@@ -74,7 +74,6 @@ module "aks_cluster" {
   virtual_network_name                                 = module.virtual-network.virtual_network_name
   location                                             = "EAST US"
   virtual_network_resource_group_name                  = module.resource-group.resource_group_name
-  log_analytics_workspace_id                           = module.log-analytics-workspace.log_analytics_workspace_id
   aks_node_pool_subnet_routes = {
     route1 = {
       name                   = "Default"
@@ -86,13 +85,12 @@ module "aks_cluster" {
   outbound_type = "loadBalancer"
 }
 
-module "log-analytics-workspace" {
-  source                       = "git::https://github.com/wso2/azure-terraform-modules//modules/azurerm/Log-Analytics-Workspace?ref=v0.5.0"
-  location                     = "EAST US"
-  log_analytics_workspace_name = join("-", ["aks-deployment", "dev", "eastus", "lawn"])
-  log_analytics_workspace_sku  = "PerGB2018"
-  log_retention_in_days        = 30
-  resource_group_name          = module.resource-group.resource_group_name
-  tags                         = local.default_tags
-}
+# module "storage-account" {
+#   source                   = "./azure-storage-account"
+#   azure_disk_name          = join("", ["aks", "dev", "eastus", "storage"])
+#   azure_disk_location      = "EAST US"
+#   resource_group_name      = module.resource-group.resource_group_name
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+# }
 

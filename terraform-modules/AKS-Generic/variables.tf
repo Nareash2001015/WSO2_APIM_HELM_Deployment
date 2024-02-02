@@ -35,11 +35,6 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "log_analytics_workspace_id" {
-  description = "Log Analytics Workspace Resource id"
-  type        = string
-}
-
 # Network details
 variable "virtual_network_resource_group_name" {
   default     = null
@@ -307,3 +302,8 @@ variable "internal_load_balancer_subnet_enforce_private_link_endpoint_network_po
   description = "Enable or Disable network policies for the private link endpoint on the internal load balancer subnet"
   type        = bool
 }
+
+# variable "default_node_pool_temporary_name_for_rotation" {
+#   description = "it's just a temp value used to cycle the system node pool of the cluster. So that value will only be used if any of the mentioned properties changes. Therefore, the logic you are looking for is there by default"
+#   type = string
+# }

@@ -11,4 +11,3 @@ spec:
     - name: https
       protocol: TCP
       port: {{ .Values.container.port1 }}
-      targetPort: {{ .Values.container.port1 }}

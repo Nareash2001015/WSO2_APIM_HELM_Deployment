@@ -16,6 +16,7 @@ namespace:
 
 app:
   name: apim
+  externalip: 20.241.199.237
 
 deployment:
   name: apim-deployment

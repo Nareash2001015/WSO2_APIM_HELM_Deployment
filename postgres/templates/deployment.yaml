@@ -33,9 +33,20 @@ spec:
           ports:
             - containerPort: {{ .Values.container.port1 }}
           volumeMounts:
-            - name: {{ .Values.ConfigMap.name }}
+            - name: {{ .Values.ConfigMap.name1 }}
               mountPath: /docker-entrypoint-initdb.d
+            # - name: azure-volume
+            #   mountPath: /mnt/azure
+            #   readOnly: false
+      tolerations:
+        - key: "CriticalAddonsOnly"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"
       volumes:
-        - name: {{ .Values.ConfigMap.name }}
+        - name: {{ .Values.ConfigMap.name1 }}
           configMap:
-            name: {{ .Values.ConfigMap.name }}
+            name: {{ .Values.ConfigMap.name1 }}
+        # - name: azure-volume
+        #   persistentVolumeClaim:
+        #     claimName: azure-persistent-volume-claim
